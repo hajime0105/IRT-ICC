@@ -1,3 +1,8 @@
+logistic <- function(a, b, theta) {
+  prob <- 1 / (1 + exp(-1.7 * a * (theta - b)))
+  prob
+}
+
 Person <- 20
 Item <- 5
 
@@ -19,7 +24,7 @@ for (i in 1:Person) {
 
 for (i in 1:Item) {
   for (j in 1:Person) {
-    data[j, i] <- (1 / (1 + exp(-1.7 * test[i, 1] * (person[j,1] - test[i, 2]))))
+    data[j, i] <- logistic(test[i, 1], test[i, 2], person[j, 1])
     data[j, i] <- round(data[j, i], 4)
   }
 }
